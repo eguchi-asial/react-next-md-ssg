@@ -1,0 +1,67 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contents {
+  // HEADER高さ
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: auto 20%;
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  width: 100%;
+
+  .main {
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+    font-size: 18px;
+    overflow: scroll;
+
+    .latest-reviews-title {
+      margin: 10px 0;
+    }
+  }
+
+  .sub {
+    margin: 5px;
+    font-size: 14px;
+
+    h3 {
+      margin: 5px;
+    }
+
+    .category-list {
+      background: #fff;
+      margin: 5px;
+
+      .category-list-item {
+        margin: 5px;
+        padding: 5px;
+        word-break: break-all;
+
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contents {
+    // HEADER高さ
+    margin-top: 60px;
+    display: inline-block;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    width: 100%;
+    padding-bottom: 100px;
+
+    .sub {
+      display: none;
+    }
+  }
+}

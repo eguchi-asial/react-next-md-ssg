@@ -10,7 +10,7 @@ ogImage:
   url: '/assets/blog/hello-world/test.png'
 ---
 
-* はじめに
+# はじめに
 
 - て
 - す
