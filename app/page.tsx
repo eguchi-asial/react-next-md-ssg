@@ -10,26 +10,33 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const morePosts = getPosts()
+  const latest10Contents = getPosts()
 
   return (
     <div>
       <AppHeader title={'AREKORE'}></AppHeader>
       {
-        morePosts.length > 0 &&
-        <div>
-          <ul>
-            { morePosts.map((post, index) =>
-            <li key={ index }>
-              <Link
-                as={`/articles/${post.slug}`}
-                href="/articles/[slug]"
-              >
-                {post.title}
-              </Link>
-            </li>
-            )}
-          </ul>
+        latest10Contents.length > 0 &&
+        <div className={styles.contents}>
+          <div className={styles.main}>
+            <h2 className={styles['latest-reviews-title']}>
+              新着レビュー({ latest10Contents.length })
+            </h2>
+            <div className={styles['items-wrapper']}>
+              <ul className={styles.items}>
+                { latest10Contents.map((post, index) =>
+                <li key={ index }>
+                  <Link
+                    as={`/articles/${post.slug}`}
+                    href="/articles/[slug]"
+                  >
+                    {post.title}
+                  </Link>
+                </li>
+                )}
+              </ul>
+            </div>
+          </div>
         </div>
       }
     </div>
@@ -46,5 +53,5 @@ export const getPosts = () => {
     'excerpt',
   ])
 
-  return allPosts
+  return allPosts.slice(0, 10)
 }
