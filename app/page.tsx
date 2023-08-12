@@ -43,7 +43,7 @@ export default async function Home() {
   )
 }
 
-export const getPosts = () => {
+const getPosts = () => {
   const allPosts = getAllPosts([
     'title',
     'date',
