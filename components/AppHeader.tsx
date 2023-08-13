@@ -13,7 +13,8 @@ const Header = ({ title }: { title: string }) => {
               src="/logo.png"
               alt={'ロゴ画像'}
               width={100}
-              height={150}
+              height={50}
+              priority
             />
           </Link>
         </span>
