@@ -3,11 +3,7 @@ title: 'テスト'
 excerpt: '要約'
 coverImage: '/assets/blog/hello-world/test.png'
 date: '2023-07-16T05:35:00.000Z'
-author:
-  name: ゆ
-  picture: '/assets/blog/authors/test.png'
-ogImage:
-  url: '/assets/blog/hello-world/test.png'
+author: ゆ
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
