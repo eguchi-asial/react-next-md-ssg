@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styles from './AppHeader.module.scss'
 import Image from 'next/image'
 
-const Header = ({ title }: { title: string }) => {
+const Header = ({ title = '' }: { title?: string }) => {
   return (
     <div className={styles.header}>
       <div className={styles.center}>
@@ -12,13 +12,13 @@ const Header = ({ title }: { title: string }) => {
               className={styles.logo}
               src="/logo.png"
               alt={'ロゴ画像'}
-              width={100}
-              height={50}
+              width={480 / 3}
+              height={200 / 3}
               priority
             />
           </Link>
         </span>
-        { title }
+        <p>{ title }</p>
       </div>
     </div>
   )

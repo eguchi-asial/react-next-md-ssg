@@ -14,7 +14,7 @@ export default async function Home() {
 
   return (
     <div>
-      <AppHeader title={'AREKORE'}></AppHeader>
+      <AppHeader />
       {
         latest10Contents.length > 0 &&
         <div className={styles.contents}>
