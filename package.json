@@ -9,6 +9,7 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
+    "@prisma/client": "^5.1.1",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
@@ -28,6 +29,7 @@
     "npm": "9.6.7"
   },
   "devDependencies": {
+    "prisma": "^5.1.1",
     "sass": "^1.65.1"
   }
 }
