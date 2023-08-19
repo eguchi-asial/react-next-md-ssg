@@ -60,4 +60,4 @@ VercelStorageのVercelKVを使ってます。
 
 ### envについて
 
-prismaでは.envを使うが、vercelでは.env.development.localなどのenvを使っている。この統合をどうするのか調査中
+prismaではlocalでは.envを使うが、vercelでは.env.development.localを参照する
