@@ -13,7 +13,7 @@ export async function getMarkdowns(): Promise<Markdowns> {
     }
   )
   const json: Markdowns = await response.json()
-  console.info(`@@@res json: ${json?.markdowns?.length}`)
+  console.info(`@@@res json: ${JSON.stringify(json)}`)
   return json
 }
 
