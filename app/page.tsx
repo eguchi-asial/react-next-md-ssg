@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { getLatest10Posts } from '../lib/api'
+import { getLatest10Markdowns } from '../lib/api'
 import styles from './page.module.scss'
 import AppHeader from '../components/AppHeader'
 
@@ -44,7 +44,7 @@ export default async function Home() {
 }
 
 const getPosts = () => {
-  const allPosts = getLatest10Posts([
+  const allPosts = getLatest10Markdowns([
     'title',
     'date',
     'slug',

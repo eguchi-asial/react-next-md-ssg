@@ -1,9 +1,5 @@
-import fs from 'fs'
-import { join } from 'path'
 import matter from 'gray-matter'
 import { Markdown, Markdowns } from '../types/app'
-
-const postsDirectory = join(process.cwd(), '_posts')
 
 export async function getMarkdowns(): Promise<Markdowns> {
   const response = await fetch(`${process.env.API_BASE_URL}/api/articles/`,
@@ -19,7 +15,7 @@ export async function getMarkdowns(): Promise<Markdowns> {
 }
 
 export async function getMarkdownObjBySlug(slug: string): Promise<Markdown> {
-  const response = await fetch(`${process.env.API_BASE_URL}/api/articles/${slug}`,
+  const response = await fetch(`${process.env.API_BASE_URL || 'https://react-next-md-ssg.vercel.app'}/api/articles/${slug}`,
     {
       method: 'GET',
       headers: {
@@ -56,7 +52,7 @@ export function getPostByMarkdown(md: Markdown, fields: string[] = []) {
   return items
 }
 
-export async function getLatest10Posts(fields: string[] = []) {
+export async function getLatest10Markdowns(fields: string[] = []) {
   const markdowns: Markdown[] = (await getMarkdowns()).markdowns
   console.log(markdowns)
   const posts = markdowns.map((md: Markdown) => getPostByMarkdown(md, fields))
