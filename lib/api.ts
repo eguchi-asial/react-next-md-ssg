@@ -57,7 +57,7 @@ export function getPostByMarkdown(md: Markdown, fields: string[] = []) {
 export async function getLatest10Markdowns(fields: string[] = []) {
   try {
     const markdownsJsonObj = await getMarkdowns()
-    const { markdowns } = markdownsJsonObj
+    const { markdowns = [] } = markdownsJsonObj
     const posts = markdowns
       .map((md: Markdown) => getPostByMarkdown(md, fields))
       .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
