@@ -13,6 +13,7 @@ export async function getMarkdowns(): Promise<Markdowns> {
     }
   )
   const json = await response.json()
+  console.info(`@@@res json: ${json}`)
   return json
 }
 
