@@ -3,7 +3,6 @@ import { Markdown, Markdowns } from '../types/app'
 
 export async function getMarkdowns(): Promise<Markdowns> {
   const requestUrl = `${process.env.API_BASE_URL}/api/articles/`
-  console.info(`@@@requestUrl: ${requestUrl}`)
   const response = await fetch(requestUrl,
     {
       method: 'GET',
@@ -13,7 +12,6 @@ export async function getMarkdowns(): Promise<Markdowns> {
     }
   )
   const json: Markdowns = await response.json()
-  console.info(`@@@res json: ${JSON.stringify(json)}`)
   return json
 }
 
