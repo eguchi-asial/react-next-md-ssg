@@ -12,8 +12,8 @@ export async function getMarkdowns(): Promise<Markdowns> {
       }
     }
   )
-  const json = await response.json()
-  console.info(`@@@res json: ${json}`)
+  const json: Markdowns = await response.json()
+  console.info(`@@@res json: ${json?.markdowns?.length}`)
   return json
 }
 
