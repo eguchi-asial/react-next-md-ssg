@@ -15,7 +15,7 @@ export async function getMarkdowns(): Promise<Markdowns> {
 }
 
 export async function getMarkdownObjBySlug(slug: string): Promise<Markdown> {
-  const response = await fetch(`${process.env.API_BASE_URL || 'https://react-next-md-ssg.vercel.app'}/api/articles/${slug}`,
+  const response = await fetch(`${process.env.API_BASE_URL}/api/articles/${slug}`,
     {
       method: 'GET',
       headers: {
@@ -53,10 +53,15 @@ export function getPostByMarkdown(md: Markdown, fields: string[] = []) {
 }
 
 export async function getLatest10Markdowns(fields: string[] = []) {
-  const markdowns: Markdown[] = (await getMarkdowns()).markdowns
-  console.log(markdowns)
-  const posts = markdowns.map((md: Markdown) => getPostByMarkdown(md, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
+  try {
+    const markdownsJsonObj = await getMarkdowns()
+    const { markdowns } = markdownsJsonObj
+    const posts = markdowns
+      .map((md: Markdown) => getPostByMarkdown(md, fields))
+      .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    return posts
+  } catch(err) {
+    // ignore
+    return []
+  }
 }
