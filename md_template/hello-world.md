@@ -1,7 +1,7 @@
 ---
 title: 'テスト'
 excerpt: '要約'
-coverImage: '/assets/blog/hello-world/test.png'
+coverImage: '/assets/images/test.png'
 date: '2023-07-16T05:35:00.000Z'
 author: ゆ
 ---
