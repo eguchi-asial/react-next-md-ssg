@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { getAllPosts } from '../lib/api'
+import { getLatest10Posts } from '../lib/api'
 import styles from './page.module.scss'
 import AppHeader from '../components/AppHeader'
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const latest10Contents = getPosts()
+  const latest10Contents = await getPosts()
 
   return (
     <div>
@@ -20,7 +20,7 @@ export default async function Home() {
         <div className={styles.contents}>
           <div className={styles.main}>
             <h2 className={styles['latest-reviews-title']}>
-              新着レビュー({ latest10Contents.length })
+              新着({ latest10Contents.length })
             </h2>
             <div className={styles['items-wrapper']}>
               <ul className={styles.items}>
@@ -44,7 +44,7 @@ export default async function Home() {
 }
 
 const getPosts = () => {
-  const allPosts = getAllPosts([
+  const allPosts = getLatest10Posts([
     'title',
     'date',
     'slug',
@@ -53,5 +53,5 @@ const getPosts = () => {
     'excerpt',
   ])
 
-  return allPosts.slice(0, 10)
+  return allPosts
 }

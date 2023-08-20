@@ -4,10 +4,9 @@ const prisma = new PrismaClient()
 
 export async function GET(request: NextRequest) {
 
-  const articles = await prisma.markdowns.findMany()
+  const markdowns = await prisma.markdowns.findMany({ take: 10 })
 
   return NextResponse.json({
-    code: 200,
-    articles
+    markdowns
   })
 }
