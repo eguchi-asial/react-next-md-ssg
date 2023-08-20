@@ -2,7 +2,7 @@ import matter from 'gray-matter'
 import { Markdown, Markdowns } from '../types/app'
 
 export async function getMarkdowns(): Promise<Markdowns> {
-  const response = await fetch(`${process.env.API_BASE_URL}/api/articles/`,
+  const response = await fetch(`${process.env.API_BASE_URL || 'https://react-next-md-ssg.vercel.app'}/api/articles/`,
     {
       method: 'GET',
       headers: {
