@@ -5,6 +5,7 @@ import AppHeader from '../../../components/AppHeader'
 import { getAllComments } from '../../../lib/redis'
 import CommentInputClient from '../../../components/CommentInputClient'
 import { notFound } from 'next/navigation'
+import styles from './page.module.scss'
 
 export async function generateMetadata({ params }:  { params: { slug: string } }) {
   return {
@@ -19,9 +20,9 @@ export default async function Articles({ params }: { params: { slug: string } })
     const content = await markdownToHtml(post.content || '')
     const comments = await getAllComments(post.slug)
     return (
-      <div>
+      <div className={styles.article}>
         <AppHeader title={post.title} />
-        <div dangerouslySetInnerHTML={{ __html: content }}
+        <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: content }}
         />
         <div>
           <p>コメント</p>
