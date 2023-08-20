@@ -2,7 +2,9 @@ import matter from 'gray-matter'
 import { Markdown, Markdowns } from '../types/app'
 
 export async function getMarkdowns(): Promise<Markdowns> {
-  const response = await fetch(`${process.env.API_BASE_URL || 'https://react-next-md-ssg.vercel.app'}/api/articles/`,
+  const requestUrl = `${process.env.API_BASE_URL || 'https://react-next-md-ssg.vercel.app'}/api/articles/`
+  console.info(`@@@requestUrl: ${requestUrl}`)
+  const response = await fetch(requestUrl,
     {
       method: 'GET',
       headers: {
@@ -62,6 +64,7 @@ export async function getLatest10Markdowns(fields: string[] = []) {
     return posts
   } catch(err) {
     // ignore
+    console.error(err)
     return []
   }
 }
