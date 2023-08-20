@@ -15,7 +15,7 @@ export async function getMarkdowns(): Promise<Markdowns> {
 }
 
 export async function getMarkdownObjBySlug(slug: string): Promise<Markdown> {
-  const response = await fetch(`${process.env.API_BASE_URL}/api/articles/${slug}`,
+  const response = await fetch(`${process.env.API_BASE_URL || 'https://react-next-md-ssg.vercel.app'}/api/articles/${slug}`,
     {
       method: 'GET',
       headers: {
