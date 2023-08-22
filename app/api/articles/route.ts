@@ -8,5 +8,11 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json({
     markdowns
+  }, {
+    headers: {
+      'Cache-Control': 'no-store',
+      'CDN-Cache-Control': 'no-store',
+      'Vercel-CDN-Cache-Control': 'no-store'
+    }
   })
 }
