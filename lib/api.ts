@@ -2,7 +2,7 @@ import matter from 'gray-matter'
 import { Markdown, Markdowns } from '../types/app'
 
 export async function getMarkdowns(): Promise<Markdowns> {
-  const requestUrl = `${process.env.API_BASE_URL}/api/articles/`
+  const requestUrl = `${process.env.API_BASE_URL}/api/articles/?cc=${new Date().getTime()}`
   const response = await fetch(requestUrl,
     {
       method: 'GET',
@@ -16,7 +16,7 @@ export async function getMarkdowns(): Promise<Markdowns> {
 }
 
 export async function getMarkdownObjBySlug(slug: string): Promise<Markdown> {
-  const response = await fetch(`${process.env.API_BASE_URL}/api/articles/${slug}`,
+  const response = await fetch(`${process.env.API_BASE_URL}/api/articles/${slug}?cc=${new Date().getTime()}`,
     {
       method: 'GET',
       headers: {
