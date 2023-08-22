@@ -30,3 +30,12 @@ model d472dad6_d6ae_51e0_9240_11786e164ce0_20230822005200_vrepl {
   @@index([category_id], map: "category_id_idx")
   @@map("_d472dad6_d6ae_51e0_9240_11786e164ce0_20230822005200_vrepl")
 }
+
+model markdowns_categories {
+  id          Int @id @default(autoincrement())
+  markdown_id Int
+  category_id Int
+
+  @@index([category_id], map: "category_id")
+  @@index([markdown_id], map: "markdown_id")
+}
