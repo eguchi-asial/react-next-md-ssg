@@ -14,6 +14,13 @@ model categories {
 }
 
 model markdowns {
+  id       Int    @id @default(autoincrement())
+  markdown String @db.LongText
+  slug     String @db.VarChar(255)
+  title    String @db.VarChar(255)
+}
+
+model d472dad6_d6ae_51e0_9240_11786e164ce0_20230822005200_vrepl {
   id          Int    @id @default(autoincrement())
   markdown    String @db.LongText
   category_id Int
@@ -21,24 +28,5 @@ model markdowns {
   title       String @db.VarChar(255)
 
   @@index([category_id], map: "category_id_idx")
-}
-
-model abfaf38_78e0_5d7d_9aa6_f1ea3a3b0590_20230820005925_vrepl {
-  id          Int    @id @default(autoincrement())
-  markdown    String @db.LongText
-  category_id Int
-  slug        String @db.VarChar(255)
-  title       String @db.VarChar(255)
-
-  @@index([category_id], map: "category_id_idx")
-  @@map("_3abfaf38_78e0_5d7d_9aa6_f1ea3a3b0590_20230820005925_vrepl")
-}
-
-model f0e9b04f_5182_56d4_afa7_0f7af7f605fb_20230820010305_vrepl {
-  id          Int    @id @default(autoincrement())
-  markdown    String @db.LongText
-  category_id Int
-
-  @@index([category_id], map: "category_id_idx")
-  @@map("_f0e9b04f_5182_56d4_afa7_0f7af7f605fb_20230820010305_vrepl")
+  @@map("_d472dad6_d6ae_51e0_9240_11786e164ce0_20230822005200_vrepl")
 }
