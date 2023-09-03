@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import { prisma } from '../../../../lib/prisma'
 
 export async function GET(request: NextRequest, { params }: { params: { slug: string } }) {
   const markdown = await prisma.markdowns.findFirstOrThrow({ where: { slug: params.slug } })

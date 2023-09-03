@@ -6,16 +6,16 @@ import { getMarkdownsByCategoryName } from '../../../../lib/api'
 
 export const dynamic = 'force-dynamic'
 
-export async function generateMetadata({ params }:  { params: { name: string } }) {
-  const categoryName = decodeURI(params.name)
+export async function generateMetadata({ params: { name } }:  { params: { name: string } }) {
+  const categoryName = decodeURI(name)
   return {
     title: `カテゴリー ${categoryName} の一覧 - AREKORE`
   }
 }
 
-export default async function CategoryArticle({ params }: { params: { name: string } }) {
+export default async function CategoryArticle({ params: { name } }: { params: { name: string } }) {
   try {
-    const categoryName = decodeURI(params.name)
+    const categoryName = decodeURI(name)
     const markdowns = await getPosts(categoryName)
     return (
       <div>

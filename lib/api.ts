@@ -16,14 +16,13 @@ export async function getMarkdowns(): Promise<Markdowns> {
 
 export async function getMarkdownsWIthParams(params: MarkdownParams): Promise<Markdowns> {
   const requestUrl = `${process.env.API_BASE_URL}/api/articles/params/?cc=${new Date().getTime()}`
-  const options: RequestInit = {
+  const response = await fetch(requestUrl, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
     },
     body: JSON.stringify(params)
-  }
-  const response = await fetch(requestUrl, options)
+  })
   const json: Markdowns = await response.json()
   return json
 }

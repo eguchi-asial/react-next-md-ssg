@@ -57,8 +57,7 @@ export default async function Home() {
                 { categories.map((category, index) =>
                 <li key={ index }>
                   <Link
-                    as={`/articles/categories/${category.name}`}
-                    href="/articles/categories/[name]"
+                    href={`/articles/categories/${category.name}`}
                   >
                     {category.name}
                   </Link>
