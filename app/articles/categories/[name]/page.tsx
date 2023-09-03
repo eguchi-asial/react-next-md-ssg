@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import styles from './page.module.scss'
 import { getMarkdownsByCategoryName } from '../../../../lib/api'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }:  { params: { name: string } }) {
   return {
     title: `カテゴリー ${params.name} の一覧 - AREKORE`
