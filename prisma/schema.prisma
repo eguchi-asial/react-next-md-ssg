@@ -20,17 +20,6 @@ model markdowns {
   title    String @db.VarChar(255)
 }
 
-model d472dad6_d6ae_51e0_9240_11786e164ce0_20230822005200_vrepl {
-  id          Int    @id @default(autoincrement())
-  markdown    String @db.LongText
-  category_id Int
-  slug        String @db.VarChar(255)
-  title       String @db.VarChar(255)
-
-  @@index([category_id], map: "category_id_idx")
-  @@map("_d472dad6_d6ae_51e0_9240_11786e164ce0_20230822005200_vrepl")
-}
-
 model markdowns_categories {
   id          Int @id @default(autoincrement())
   markdown_id Int
@@ -38,4 +27,32 @@ model markdowns_categories {
 
   @@index([category_id], map: "category_id")
   @@index([markdown_id], map: "markdown_id")
+}
+
+model a07d5c9_479d_5907_99b3_2459b8ac1751_20230903012843_vrepl {
+  id           Int       @id
+  markdowns_id Int
+  comment      String    @db.LongText
+  created_at   DateTime? @default(now()) @db.Timestamp(0)
+  updated_at   DateTime? @default(now()) @db.Timestamp(0)
+
+  @@map("_4a07d5c9_479d_5907_99b3_2459b8ac1751_20230903012843_vrepl")
+}
+
+model vt_HOLD_33e74254736957ac89947560df7fc0f0_20230904014951 {
+  id           Int       @id @default(autoincrement())
+  markdowns_id Int
+  comment      String    @db.LongText
+  created_at   DateTime? @default(now()) @db.Timestamp(0)
+  updated_at   DateTime? @default(now()) @db.Timestamp(0)
+
+  @@map("_vt_HOLD_33e74254736957ac89947560df7fc0f0_20230904014951")
+}
+
+model comments {
+  id           Int       @id @default(autoincrement())
+  markdowns_id Int
+  comment      String    @db.LongText
+  created_at   DateTime? @default(now()) @db.Timestamp(0)
+  updated_at   DateTime? @default(now()) @db.Timestamp(0)
 }

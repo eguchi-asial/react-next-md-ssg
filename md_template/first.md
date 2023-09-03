@@ -54,5 +54,7 @@ author: 江口
         - Next
           - pages router => app routerへの書きっぷり変更は結構大きい
           - 部分的clinet-commponentできないの面倒(自分がNext初心者なのが悪いだけ)
+          - app routerだと、deploy->build時にAPI呼び出してSSG作る時に、なぜかAPIが古いキャッシュされたreponseを返すようで、画面が更新されなかった。
+            - 内供APIには `no-store` res headerつけていて、deploy後もendpointは最新返すのに、SSG生成時のみ、キャッシュが返ってくる
         - Prisma
           - ORMにPrisma使ってみたが、Schema変えたらPrismaClientにも取り込まないとエラーになって本番障害になる。Schemaの変更反映と同時にFrontでも `prisma db pull` `prisma db pull` しないといけない運用になるっぽい。

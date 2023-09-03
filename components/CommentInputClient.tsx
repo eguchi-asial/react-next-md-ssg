@@ -3,9 +3,9 @@
 import CommentInput from "./CommentInput"
 
 /** CSRコンポーネント `CommentInput` 専用のラッパー */
-const CommentInputClient = ({ slug }: { slug: string }) => {
+const CommentInputClient = ({ slug, mid }: { slug: string, mid: number }) => {
   const sendComment = async (comment: string) => {
-    await fetch(`/api/articles/${slug}`,
+    await fetch(`/api/articles/comments/${mid}`,
       {
         method: 'POST',
         headers: {

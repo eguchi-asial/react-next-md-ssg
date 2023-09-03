@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { getMarkdownObjBySlug, getPostByMarkdown } from '../../../lib/api'
+import { getMarkdownObjBySlug, getCommentObjByMid, getPostByMarkdown } from '../../../lib/api'
 import markdownToHtml from '../../../lib/markdownToHtml'
 import AppHeader from '../../../components/AppHeader'
-import { getAllComments } from '../../../lib/redis'
 import CommentInputClient from '../../../components/CommentInputClient'
 import { notFound } from 'next/navigation'
 import styles from './page.module.scss'
+import { Comment } from '../../../types/app'
 
 export async function generateMetadata({ params }:  { params: { slug: string } }) {
   return {
@@ -18,7 +18,7 @@ export default async function Articles({ params }: { params: { slug: string } })
     const markdown = await getMarkdownObjBySlug(params.slug)
     const post = getPostByMarkdown(markdown, ['slug', 'title', 'content'])
     const content = await markdownToHtml(post.content || '')
-    const comments = await getAllComments(post.slug)
+    const comments = await getCommentObjByMid(markdown.id)
     return (
       <div className={styles.article}>
         <AppHeader title={post.title} />
@@ -28,12 +28,12 @@ export default async function Articles({ params }: { params: { slug: string } })
           <p>コメント</p>
           { comments.length > 0 &&
             <ul>
-              {comments.map((comment: string, index: number) => <li key={`comments-${index}`}>{comment}</li>)}
+              {comments.map((comment: Comment, index: number) => <li key={`comments-${index}`}>{comment.comment}</li>)}
             </ul>
           }
         </div>
         <Link href="/" replace={true}>戻る</Link>
-        <CommentInputClient slug={post.slug} />
+        <CommentInputClient slug={post.slug} mid={markdown.id} />
       </div>
     )
   } catch (err) {

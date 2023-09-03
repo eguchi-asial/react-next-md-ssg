@@ -18,26 +18,6 @@ markdownはPlanetScale(=AWS RDS(Myswl))で管理されてます。
 ORM Prismaを介して取得してます。
 データ入稿はPlanetScale管理画面上で行ってます。
 
-## VercelKV
-
-### env
-
-```
-%vercel env pull .env.development.local
-```
-
-これでVercelKVの接続先情報などが `.env.development.local` にgitignore状態で払い出されます。
-
-## コメントについて
-
-VercelStorageのVercelKVを使ってます。
-
-以下、内部で使ってるredisコマンドです。
-
-`rpush [slug]:comments コメント例` でコメント追加
-`lrange [slug]:comments 0 -1` で全件取得
-
-
 ## Prismaについて
 
 ### 概要
