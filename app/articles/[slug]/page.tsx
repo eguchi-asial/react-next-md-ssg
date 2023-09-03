@@ -6,6 +6,7 @@ import CommentInputClient from '../../../components/CommentInputClient'
 import { notFound } from 'next/navigation'
 import styles from './page.module.scss'
 import { Comment } from '../../../types/app'
+import { DateTime } from 'luxon'
 
 export async function generateMetadata({ params }:  { params: { slug: string } }) {
   return {
@@ -28,7 +29,7 @@ export default async function Articles({ params }: { params: { slug: string } })
           <p>コメント</p>
           { comments.length > 0 &&
             <ul>
-              {comments.map((comment: Comment, index: number) => <li key={`comments-${index}`}>{comment.comment}</li>)}
+              {comments.map((comment: Comment, index: number) => <li key={`comments-${index}`}>{comment.comment}<span className={ styles.commentUpdatedAt }> - { DateTime.fromISO(comment.updated_at, { zone: 'Asia/Tokyo' }).toFormat('yyyy-MM-dd HH:MM:ss') }</span></li>)}
             </ul>
           }
         </div>
