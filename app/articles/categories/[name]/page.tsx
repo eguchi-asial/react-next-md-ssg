@@ -7,8 +7,9 @@ import { getMarkdownsByCategoryName } from '../../../../lib/api'
 export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }:  { params: { name: string } }) {
+  const categoryName = decodeURI(params.name)
   return {
-    title: `カテゴリー ${params.name} の一覧 - AREKORE`
+    title: `カテゴリー ${categoryName} の一覧 - AREKORE`
   }
 }
 
