@@ -1,18 +1,28 @@
 import matter from 'gray-matter'
 import { Categories, Comment, Markdown, MarkdownParams, Markdowns } from '../types/app'
 
-export async function getMarkdowns(params?: MarkdownParams): Promise<Markdowns> {
+export async function getMarkdowns(): Promise<Markdowns> {
   const requestUrl = `${process.env.API_BASE_URL}/api/articles/?cc=${new Date().getTime()}`
   const options: RequestInit = {
-    method: 'POST',
+    method: 'GET',
     headers: {
       'content-type': 'application/json',
     }
   }
-  if (params) {
-    options.body = JSON.stringify(params)
+  const response = await fetch(requestUrl, options)
+  const json: Markdowns = await response.json()
+  return json
+}
+
+export async function getMarkdownsWIthParams(params: MarkdownParams): Promise<Markdowns> {
+  const requestUrl = `${process.env.API_BASE_URL}/api/articles/params/?cc=${new Date().getTime()}`
+  const options: RequestInit = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(params)
   }
-  console.log(4444, requestUrl, options)
   const response = await fetch(requestUrl, options)
   const json: Markdowns = await response.json()
   return json
@@ -85,7 +95,7 @@ export async function getLatest10Markdowns(fields: string[] = []) {
 
 export async function getMarkdownsByCategoryName(categoryName: string, fields: string[] = []) {
   try {
-    const markdownsJsonObj = await getMarkdowns({ categoryName })
+    const markdownsJsonObj = await getMarkdownsWIthParams({ categoryName })
     const { markdowns = [] } = markdownsJsonObj
     const posts = markdowns
       .map((md: Markdown) => getPostByMarkdown(md, fields))

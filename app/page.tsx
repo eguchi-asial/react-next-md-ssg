@@ -4,6 +4,8 @@ import { getCategories, getLatest10Markdowns } from '../lib/api'
 import styles from './page.module.scss'
 import AppHeader from '../components/AppHeader'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'AREKORE',
   description: 'View articles with news, reviews, testimonials, and impressions. On this TOP page, the latest 10 items are displayed.',
