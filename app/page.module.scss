@@ -1,12 +1,17 @@
 .contents {
   width: 100%;
 
-  .main {
+  .latest-reviews {
     margin: 10px;
     padding: 10px;
     background: #fff;
     font-size: 18px;
     overflow: scroll;
+
+    .latest-reviews-title {
+      font-weight: bold;
+      font-size: 24px;
+    }
 
     .items-wrapper {
       .items {
@@ -17,26 +22,23 @@
     }
   }
 
-  .sub {
-    margin: 5px;
-    font-size: 14px;
+  .categories {
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+    font-size: 18px;
+    overflow: scroll;
 
-    h3 {
-      margin: 5px;
+    .categories-title {
+      font-weight: bold;
+      font-size: 24px;
     }
 
-    .category-list {
-      background: #fff;
-      margin: 5px;
-
-      .category-list-item {
-        margin: 5px;
-        padding: 5px;
-        word-break: break-all;
-
-        a {
-          font-size: 18px;
-        }
+    .items-wrapper {
+      .items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
       }
     }
   }
@@ -51,9 +53,5 @@
     overflow-y: scroll;
     width: 100%;
     padding-bottom: 100px;
-
-    .sub {
-      display: none;
-    }
   }
 }

@@ -7,7 +7,12 @@ type Payload = {
 }
 
 export async function GET(_request: NextRequest, { params }: { params: { mid: number } }) {
-  const comment = await prisma.comments.findMany({ where: { markdowns_id: Number(params.mid) } })
+  const comment = (await prisma.comments.findMany({
+    where: { markdowns_id: Number(params.mid) },
+    orderBy: {
+      updated_at: 'desc'
+    }
+  }))
   return NextResponse.json(comment, {
     headers: {
       'Cache-Control': 'no-store',

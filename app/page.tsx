@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { getLatest10Markdowns } from '../lib/api'
+import { getCategories, getLatest10Markdowns } from '../lib/api'
 import styles from './page.module.scss'
 import AppHeader from '../components/AppHeader'
 
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const latest10Contents = await getPosts()
+  const categories = await getCategories()
 
   return (
     <div>
@@ -18,7 +19,7 @@ export default async function Home() {
       {
         latest10Contents.length > 0 &&
         <div className={styles.contents}>
-          <div className={styles.main}>
+          <div className={styles['latest-reviews']}>
             <h2 className={styles['latest-reviews-title']}>
               新着({ latest10Contents.length })
             </h2>
@@ -31,6 +32,33 @@ export default async function Home() {
                     href="/articles/[slug]"
                   >
                     {post.title}
+                  </Link>
+                </li>
+                )}
+              </ul>
+            </div>
+            <p>
+            <Link
+              as={`/articles/page/1`}
+              href="/articles/page/[page]"
+            >
+              すべてみる
+            </Link>
+            </p>
+          </div>
+          <div className={styles.categories}>
+            <h2 className={styles['categories-title']}>
+              カテゴリー
+            </h2>
+            <div className={styles['items-wrapper']}>
+              <ul className={styles.items}>
+                { categories.map((category, index) =>
+                <li key={ index }>
+                  <Link
+                    as={`/articles/categories/${category.name}`}
+                    href="/articles/categories/[name]"
+                  >
+                    {category.name}
                   </Link>
                 </li>
                 )}

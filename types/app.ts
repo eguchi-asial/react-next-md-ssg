@@ -21,3 +21,16 @@ export interface Markdowns {
 export interface Comments {
   markdowns: Comment[]
 }
+
+export interface Category {
+  id: number
+  name: string
+}
+
+export interface Categories {
+  categories: Category[]
+}
+
+export interface MarkdownParams {
+  categoryName?: string
+}

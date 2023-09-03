@@ -1,16 +1,18 @@
 import matter from 'gray-matter'
-import { Comment, Comments, Markdown, Markdowns } from '../types/app'
+import { Categories, Comment, Markdown, MarkdownParams, Markdowns } from '../types/app'
 
-export async function getMarkdowns(): Promise<Markdowns> {
+export async function getMarkdowns(params?: MarkdownParams): Promise<Markdowns> {
   const requestUrl = `${process.env.API_BASE_URL}/api/articles/?cc=${new Date().getTime()}`
-  const response = await fetch(requestUrl,
-    {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      }
+  const options: RequestInit = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
     }
-  )
+  }
+  if (params) {
+    options.body = JSON.stringify(params)
+  }
+  const response = await fetch(requestUrl, options)
   const json: Markdowns = await response.json()
   return json
 }
@@ -73,6 +75,41 @@ export async function getLatest10Markdowns(fields: string[] = []) {
       .map((md: Markdown) => getPostByMarkdown(md, fields))
       .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
     return posts
+  } catch(err) {
+    // ignore
+    console.error(err)
+    return []
+  }
+}
+
+export async function getMarkdownsByCategoryName(categoryName: string, fields: string[] = []) {
+  try {
+    const markdownsJsonObj = await getMarkdowns({ categoryName })
+    const { markdowns = [] } = markdownsJsonObj
+    const posts = markdowns
+      .map((md: Markdown) => getPostByMarkdown(md, fields))
+      .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    return posts
+  } catch(err) {
+    // ignore
+    console.error(err)
+    return []
+  }
+}
+
+export async function getCategories() {
+  try {
+    const requestUrl = `${process.env.API_BASE_URL}/api/categories/?cc=${new Date().getTime()}`
+    const response = await fetch(requestUrl,
+      {
+        method: 'GET',
+        headers: {
+          'content-type': 'application/json',
+        }
+      }
+    )
+    const json: Categories = await response.json()
+    return json.categories
   } catch(err) {
     // ignore
     console.error(err)
