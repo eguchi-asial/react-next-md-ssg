@@ -12,6 +12,7 @@ export async function getMarkdowns(params?: MarkdownParams): Promise<Markdowns> 
   if (params) {
     options.body = JSON.stringify(params)
   }
+  console.log(4444, requestUrl, options)
   const response = await fetch(requestUrl, options)
   const json: Markdowns = await response.json()
   return json
