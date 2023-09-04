@@ -30,7 +30,3 @@ export interface Category {
 export interface Categories {
   categories: Category[]
 }
-
-export interface MarkdownParams {
-  categoryName?: string
-}

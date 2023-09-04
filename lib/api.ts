@@ -1,5 +1,5 @@
 import matter from 'gray-matter'
-import { Categories, Comment, Markdown, MarkdownParams, Markdowns } from '../types/app'
+import { Categories, Comment, Markdown, Markdowns } from '../types/app'
 
 export async function getMarkdowns(): Promise<Markdowns> {
   const requestUrl = `${process.env.API_BASE_URL}/api/articles/?cc=${new Date().getTime()}`
@@ -14,14 +14,17 @@ export async function getMarkdowns(): Promise<Markdowns> {
   return json
 }
 
-export async function getMarkdownsWIthParams(params: MarkdownParams): Promise<Markdowns> {
-  const requestUrl = `${process.env.API_BASE_URL}/api/articles/params/?cc=${new Date().getTime()}`
+export async function getMarkdownsWIthParams(params: {[key: string]: string}): Promise<Markdowns> {
+  let requestUrl = `${process.env.API_BASE_URL}/api/articles/params/categoryName/?cc=${new Date().getTime()}`
+  Object.keys(params).map(key => {
+    const value = params[key]
+    requestUrl += `&${key}=${value}`
+  })
   const response = await fetch(requestUrl, {
-    method: 'POST',
+    method: 'GET',
     headers: {
       'content-type': 'application/json',
-    },
-    body: JSON.stringify(params)
+    }
   })
   const json: Markdowns = await response.json()
   return json
