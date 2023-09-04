@@ -43,6 +43,7 @@ export default async function Home() {
             </div>
             <p>
             <Link
+              className="arrowlink"
               as={`/articles/page/1`}
               href="/articles/page/[page]"
             >
