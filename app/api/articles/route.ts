@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '../../../lib/prisma'
 
 export async function GET(_request: NextRequest) {
-  const markdowns = await prisma.markdowns.findMany()
+  const markdowns = await prisma.markdowns.findMany({ take: 10 })
 
   return NextResponse.json({
     markdowns
