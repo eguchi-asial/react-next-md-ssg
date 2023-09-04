@@ -1,5 +1,6 @@
 import matter from 'gray-matter'
 import { Categories, Comment, Markdown, Markdowns } from '../types/app'
+import { DateTime } from 'luxon'
 
 export async function getMarkdowns(): Promise<Markdowns> {
   const requestUrl = `${process.env.API_BASE_URL}/api/articles/?cc=${new Date().getTime()}`
@@ -76,6 +77,8 @@ export function getPostByMarkdown(md: Markdown, fields: string[] = []) {
       items[field] = data[field]
     }
   })
+
+  items.date = items.date ? DateTime.fromISO(items.date, { zone: 'Asia/Tokyo' }).toFormat('yyyy-MM-dd') : ''
 
   return items
 }

@@ -28,12 +28,14 @@ export default async function Home() {
             <div className={styles['items-wrapper']}>
               <ul className={styles.items}>
                 { latest10Contents.map((post, index) =>
-                <li key={ index }>
+                <li className="oddcolor" key={ index }>
                   <Link
+                    className={styles.link}
                     as={`/articles/${post.slug}`}
                     href="/articles/[slug]"
                   >
-                    {post.title}
+                    <p className={styles.title}>{post.title}</p>
+                    <p className={styles.date}>{post.date}</p>
                   </Link>
                 </li>
                 )}
@@ -55,7 +57,7 @@ export default async function Home() {
             <div className={styles['items-wrapper']}>
               <ul className={styles.items}>
                 { categories.map((category, index) =>
-                <li key={ index }>
+                <li className="oddcolor" key={ index }>
                   <Link
                     href={`/articles/categories/${category.name}`}
                   >

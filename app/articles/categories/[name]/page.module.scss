@@ -1,0 +1,72 @@
+.contents {
+  width: 100%;
+  overflow: hidden;
+
+  .latest-reviews {
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+    font-size: 18px;
+    overflow: scroll;
+
+    .latest-reviews-title {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .items-wrapper {
+      .items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .link {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+          .title {
+            font-size: 18px;
+          }
+
+          .date {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .categories {
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+    font-size: 18px;
+    overflow: scroll;
+
+    .categories-title {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .items-wrapper {
+      .items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contents {
+    // HEADER高さ
+    margin-top: 60px;
+    display: inline-block;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    width: 100%;
+    padding-bottom: 100px;
+  }
+}

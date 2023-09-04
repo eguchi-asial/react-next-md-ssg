@@ -30,12 +30,14 @@ export default async function CategoryArticle({ params: { name } }: { params: { 
             <div className={styles['items-wrapper']}>
               <ul className={styles.items}>
                 { markdowns.map((post, index) =>
-                <li key={ index }>
+                <li className="oddcolor" key={ index }>
                   <Link
+                    className={styles.link}
                     as={`/articles/${post.slug}`}
                     href="/articles/[slug]"
                   >
-                    {post.title}
+                    <p className={styles.title}>{post.title}</p>
+                    <p className={styles.date}>{post.date}</p>
                   </Link>
                 </li>
                 )}

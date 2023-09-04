@@ -9,6 +9,14 @@ body {
 
 ul {
   list-style: none;
+
+  li.oddcolor {
+    padding: 0.7em;
+
+    &:nth-child(odd) {
+      background: #eee;
+    }
+  }
 }
 
 a {
