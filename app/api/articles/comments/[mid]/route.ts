@@ -24,7 +24,16 @@ export async function GET(_request: NextRequest, { params }: { params: { mid: nu
 export async function POST(request: NextRequest, { params }: { params: { mid: number } }) {
   const jsonData: Payload = await request.json()
   const comment = jsonData.comment
-  await prisma.comments.create({ data: { markdowns_id: Number(params.mid), comment } })
+  if (!comment) {
+    return NextResponse.json({
+      status: 'Invalid Param',
+      code: 400,
+      markdowns_id: params.mid,
+      comment
+    })
+  }
+  const slicedComment = comment.slice(0, 140)
+  await prisma.comments.create({ data: { markdowns_id: Number(params.mid), comment: slicedComment } })
   return NextResponse.json({
     status: 'Created',
     code: 201,
