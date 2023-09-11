@@ -2,8 +2,8 @@ import matter from 'gray-matter'
 import { Categories, Comment, Markdown, Markdowns } from '../types/app'
 import { DateTime } from 'luxon'
 
-export async function getMarkdowns(): Promise<Markdowns> {
-  const requestUrl = `${process.env.API_BASE_URL}/api/articles/?cc=${new Date().getTime()}`
+export async function getMarkdowns(size: number = 10): Promise<Markdowns> {
+  const requestUrl = `${process.env.API_BASE_URL}/api/articles/?cc=${new Date().getTime()}&size=${size}`
   const options: RequestInit = {
     method: 'GET',
     headers: {
@@ -83,13 +83,15 @@ export function getPostByMarkdown(md: Markdown, fields: string[] = []) {
   return items
 }
 
-export async function getLatest10Markdowns(fields: string[] = []) {
+export async function getLatestMarkdowns(size: number = 10, fields: string[] = []) {
   try {
-    const markdownsJsonObj = await getMarkdowns()
+    // * 2で幅持たせて、filterで帳尻合わせる
+    const markdownsJsonObj = await getMarkdowns(size * 2)
     const { markdowns = [] } = markdownsJsonObj
     const posts = markdowns
       .map((md: Markdown) => getPostByMarkdown(md, fields))
       .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+      .slice(0, size)
     return posts
   } catch(err) {
     // ignore

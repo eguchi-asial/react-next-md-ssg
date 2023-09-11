@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '../../../lib/prisma'
 
-export async function GET(_request: NextRequest) {
-  const markdowns = await prisma.markdowns.findMany({ take: 10 })
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url)
+  const size = Number((searchParams.get('size') || 10))
+  const markdowns = await prisma.markdowns.findMany({ take: size })
 
   return NextResponse.json({
     markdowns
