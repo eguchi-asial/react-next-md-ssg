@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react"
+import { useState } from 'react'
 
 const CommentInput = ({ onClickCallback, isAwaiting }: { onClickCallback: Function, isAwaiting: boolean }) => {
   const [ commentValue, setCommentValue ] = useState('')

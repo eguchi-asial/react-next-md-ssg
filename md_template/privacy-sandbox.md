@@ -1,6 +1,6 @@
 ---
-title: 'Privacy Sandboxによる3ed party Cookie廃止とPrivate Sandbox APIの紹介'
-excerpt: 'Privacy Sandboxによる3ed party Cookie廃止とPrivate Sandbox APIの紹介'
+title: 'Privacy Sandboxによる3rd party Cookie廃止とPrivate Sandbox APIの紹介'
+excerpt: 'Privacy Sandboxによる3rd party Cookie廃止とPrivate Sandbox APIの紹介'
 coverImage: ''
 date: '2023-09-10T12:42:00.000Z'
 author: 江口

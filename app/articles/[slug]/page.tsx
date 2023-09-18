@@ -34,7 +34,7 @@ export default async function Articles({ params }: { params: { slug: string } })
           }
         </div>
         <Link href="/" replace={true}>戻る</Link>
-        <CommentInputClient slug={post.slug} mid={markdown.id} />
+        <CommentInputClient mid={markdown.id} />
       </div>
     )
   } catch (err) {

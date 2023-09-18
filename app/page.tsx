@@ -44,7 +44,7 @@ export default async function Home() {
             <p>
             <Link
               className="arrowlink"
-              as={`/articles/page/1`}
+              as={'/articles/page/1'}
               href="/articles/page/[page]"
             >
               すべてみる
