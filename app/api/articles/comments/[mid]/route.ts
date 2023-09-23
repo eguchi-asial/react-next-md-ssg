@@ -7,7 +7,7 @@ type Payload = {
 
 export async function GET(request: NextRequest, { params }: { params: { mid: number } }) {
   if (request.method === 'OPTIONS') {
-    return NextResponse.next()
+    return new NextResponse('ok', { status: 200 })
   }
   const comment = (await prisma.comments.findMany({
     where: { markdowns_id: Number(params.mid) },
