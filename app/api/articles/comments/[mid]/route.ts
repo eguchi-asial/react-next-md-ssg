@@ -5,10 +5,11 @@ type Payload = {
   comment: string
 }
 
+export async function OPTIONS() {
+  return new NextResponse('ok', { status: 200 })
+}
+
 export async function GET(request: NextRequest, { params }: { params: { mid: number } }) {
-  if (request.method === 'OPTIONS') {
-    return new NextResponse('ok', { status: 200 })
-  }
   const comment = (await prisma.comments.findMany({
     where: { markdowns_id: Number(params.mid) },
     orderBy: {
@@ -21,8 +22,8 @@ export async function GET(request: NextRequest, { params }: { params: { mid: num
       'CDN-Cache-Control': 'no-store',
       'Vercel-CDN-Cache-Control': 'no-store',
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, OPTIONS',
-      'Access-Control-Allow-Headers': '*'
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type'
     }
   })
 }
