@@ -12,7 +12,8 @@ export async function GET(request: NextRequest) {
     headers: {
       'Cache-Control': 'no-store',
       'CDN-Cache-Control': 'no-store',
-      'Vercel-CDN-Cache-Control': 'no-store'
+      'Vercel-CDN-Cache-Control': 'no-store',
+      'Access-Control-Allow-Origin': '*'
     }
   })
 }
