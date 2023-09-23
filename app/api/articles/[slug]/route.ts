@@ -10,7 +10,7 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
       'Vercel-CDN-Cache-Control': 'no-store',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
+      'Access-Control-Allow-Headers': '*'
     }
   })
 }
