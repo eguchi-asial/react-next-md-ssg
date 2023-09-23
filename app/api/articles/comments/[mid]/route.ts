@@ -14,7 +14,7 @@ export async function OPTIONS() {
       'Vercel-CDN-Cache-Control': 'no-store',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
+      'Access-Control-Allow-Headers': '*'
     }
   })
 }
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest, { params }: { params: { mid: num
       'Vercel-CDN-Cache-Control': 'no-store',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
+      'Access-Control-Allow-Headers': '*'
     }
   })
 }
