@@ -5,7 +5,10 @@ type Payload = {
   comment: string
 }
 
-export async function GET(_request: NextRequest, { params }: { params: { mid: number } }) {
+export async function GET(request: NextRequest, { params }: { params: { mid: number } }) {
+  if (request.method === 'OPTIONS') {
+    return NextResponse.next()
+  }
   const comment = (await prisma.comments.findMany({
     where: { markdowns_id: Number(params.mid) },
     orderBy: {
