@@ -17,7 +17,9 @@ export async function GET(_request: NextRequest, { params }: { params: { mid: nu
       'Cache-Control': 'no-store',
       'CDN-Cache-Control': 'no-store',
       'Vercel-CDN-Cache-Control': 'no-store',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type'
     }
   })
 }

@@ -8,7 +8,9 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
       'Cache-Control': 'no-store',
       'CDN-Cache-Control': 'no-store',
       'Vercel-CDN-Cache-Control': 'no-store',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type'
     }
   })
 }
