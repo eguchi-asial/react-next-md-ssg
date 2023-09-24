@@ -32,9 +32,10 @@ author: 江口
         - クラウド上で実行されるため、windowsからでもリリース可能
 
 - ExpoGoを使って実機で動作確認する
-  -  `expo start` でQAコードがterminalに表示されるのでiPhoneアプリ「Expo GO」をinstallしてあると実機でdebugできる
+  - 動作検証環境
     - node 18.17.1
     - npm 9.6.7
+  -  `expo start` でQAコードがterminalに表示されるのでiPhoneアプリ「Expo GO」をinstallしてあると実機でdebugできる
   - 例えば、Nativeのcomponent `StatusBar` は、 from 'react-native' よりカスタマイズできるが、Expoも `StatusBar` from 'expo-status-bar' より提供しているが、これはreact-nativeの `StatucBar` をラップした形で構築されている
     - カスタマイズを細かく指定する必要があるなら、react-nativeのcomponent使えばよろしでOK??
 

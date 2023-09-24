@@ -6,7 +6,7 @@ date: '2023-06-23T18:10:00.000Z'
 author: 江口
 ---
 
-- [web platform baseline]([ベースライン (web.dev)](https://web.dev/baseline/))
+- [web platform baseline](https://web.dev/baseline/)
 	- Google I/O 2023で発表された。 **「Web Platform Baseline」は、Webプラットフォームの機能がどのブラウザで安全に使用できるかを明確にするためのプロジェクト。** このプロジェクトは、Google、Mozilla、Microsoft、Appleなどのブラウザベンダーが協力して進められています。このプロジェクトでは、Chrome、Edge、Firefox、Safariなどの **主要ブラウザの最新バージョンと前バージョンでサポートされている機能が「ベースライン」として定義されています。** Web開発者は、ベースラインに含まれる機能を使用することで、ブラウザ互換性について心配することなくWebアプリケーションを開発することができます。また、「MDN Web Docs」や「web.dev」などのWebサイトでもベースラインに関する情報が提供されています。
 	- [MDN](https://developer.mozilla.org/ja/docs/Web)
 		- Web技術に関するドキュメントを提供するウェブサイト
