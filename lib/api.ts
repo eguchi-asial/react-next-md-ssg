@@ -15,8 +15,8 @@ export async function getMarkdowns(size: number = 10): Promise<Markdowns> {
   return json
 }
 
-export async function getMarkdownsWIthParams(params: {[key: string]: string}): Promise<Markdowns> {
-  let requestUrl = `${process.env.API_BASE_URL}/api/articles/params/categoryName/?cc=${new Date().getTime()}`
+export async function getMarkdownsWIthParams(params: {[key: string]: string | number}): Promise<Markdowns> {
+  let requestUrl = `${process.env.API_BASE_URL}/api/articles/params?cc=${new Date().getTime()}`
   Object.keys(params).map(key => {
     const value = params[key]
     requestUrl += `&${key}=${value}`
@@ -92,6 +92,21 @@ export async function getLatestMarkdowns(size: number = 10, fields: string[] = [
       .map((md: Markdown) => getPostByMarkdown(md, fields))
       .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
       .slice(0, size)
+    return posts
+  } catch(err) {
+    // ignore
+    console.error(err)
+    return []
+  }
+}
+
+export async function getMarkdownsByPage(page: number, fields: string[] = []) {
+  try {
+    const markdownsJsonObj = await getMarkdownsWIthParams({ page })
+    const { markdowns = [] } = markdownsJsonObj
+    const posts = markdowns
+      .map((md: Markdown) => getPostByMarkdown(md, fields))
+      .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
     return posts
   } catch(err) {
     // ignore
