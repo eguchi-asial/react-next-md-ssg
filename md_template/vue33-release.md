@@ -1,12 +1,12 @@
 ---
-title: 'Vue3.3 ruouni kenshin release'
+title: 'Vue3.3 Rurouni Kenshin release'
 excerpt: 'Vue3.3の新機能簡単に紹介'
 coverImage: ''
 date: '2023-05-26T18:10:00.000Z'
 author: 江口
 ---
 
-# Vue3.3 ruouni kenshin release
+# Vue3.3 Rurouni Kenshin release
 
 ## Vue3.3
 

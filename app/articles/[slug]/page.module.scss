@@ -8,6 +8,18 @@
   }
 
   .markdown {
+
+    pre {
+      margin: 1em 0;
+      padding: 1em;
+      line-height: 1.5em;
+      border-radius: 5px;
+      background: #25292f;
+      color: #fff;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     img {
       margin: 10px;
       max-width: 100%;
