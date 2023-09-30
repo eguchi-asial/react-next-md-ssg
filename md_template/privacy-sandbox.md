@@ -9,6 +9,9 @@ author: 江口
 # [Privacy Sandbox](https://privacysandbox.com/intl/ja_jp/)
 
 - Chrome
+- 3rdPartyCookieなんぞやのサンプル
+  - [https://github.com/eguchi-asial/3rdpartycookietest](https://github.com/eguchi-asial/3rdpartycookietest)
+	  - README参照
 - インターネット上のプライバシー保護を目的とした取り組み
 - 主な目的
 	- 3rdパーティCookieを廃止(2024 ~ 段階的に廃止)
