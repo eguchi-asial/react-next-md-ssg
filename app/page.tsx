@@ -76,7 +76,7 @@ export default async function Home() {
 }
 
 const getPosts = async () => {
-  const allPosts = await getLatestMarkdowns(10, [
+  const allPosts = await getLatestMarkdowns(30, [
     'title',
     'date',
     'slug',

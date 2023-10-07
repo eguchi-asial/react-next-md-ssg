@@ -10,7 +10,7 @@ author: 江口
 
 
 - v20.6.0より、.envサポートされる
-	- https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V20.md#built-in-env-file-support
+	- [https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V20.md#built-in-env-file-support](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V20.md#built-in-env-file-support)
 - INI ファイル形式
 	- ex) PASSWORD=nodejs
 - `node --env-file=config.env index.js`
