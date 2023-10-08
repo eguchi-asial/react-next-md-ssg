@@ -1,11 +1,11 @@
 import AppHeader from '../../../../components/AppHeader'
-import PictureBookAomushiClient from '../../../../components/PictureBookAomushiClient'
+import GameAomushiClient from '../../../../components/GameAomushiClient copy'
 
 export default async function Kids() { 
   return (
     <div>
       <AppHeader />
-      <PictureBookAomushiClient />
+      <GameAomushiClient />
     </div>
   )
 }

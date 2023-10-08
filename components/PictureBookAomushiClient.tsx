@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect } from 'react'
-import styles from './PictureBookClient.module.scss'
+import styles from './PictureBookAomushiClient.module.scss'
 
 /** CSRコンポーネント `PictureBook` 専用のラッパー */
-const PictureBookClient = () => {
+const PictureBookAomushiClient = () => {
   useEffect(() => {
     const legs = document.querySelector('.legs') as HTMLElement
     if (legs) {
@@ -106,4 +106,4 @@ const PictureBookClient = () => {
   )
 }
 
-export default PictureBookClient
+export default PictureBookAomushiClient
