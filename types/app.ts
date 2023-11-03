@@ -15,7 +15,8 @@ export interface Comment {
 }
 
 export interface Markdowns {
-  markdowns: Markdown[]
+  markdowns: Markdown[],
+  total?: number
 }
 
 export interface Comments {

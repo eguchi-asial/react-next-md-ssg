@@ -58,11 +58,7 @@ export async function getCommentObjByMid(mid: number): Promise<Comment[]> {
 export function getPostByMarkdown(md: Markdown, fields: string[] = []) {
   const { data, content } = matter(md.markdown)
 
-  type Items = {
-    [key: string]: string
-  }
-
-  const items: Items = {}
+  const items: {[key: string]: string} = {}
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -103,11 +99,11 @@ export async function getLatestMarkdowns(size: number = 10, fields: string[] = [
 export async function getMarkdownsByPage(page: number, fields: string[] = []) {
   try {
     const markdownsJsonObj = await getMarkdownsWIthParams({ page })
-    const { markdowns = [] } = markdownsJsonObj
+    const { markdowns = [], total } = markdownsJsonObj
     const posts = markdowns
       .map((md: Markdown) => getPostByMarkdown(md, fields))
       .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-    return posts
+    return { markdowns: posts, total }
   } catch(err) {
     // ignore
     console.error(err)

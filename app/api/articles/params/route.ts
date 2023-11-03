@@ -15,13 +15,19 @@ export async function OPTIONS() {
   })
 }
 
+/**
+ * ページ指定で10件づつ取得する
+ * @param request 
+ * @returns 
+ */
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const categoryName = searchParams.get('categoryName')
 
   const option: any = {
+    take: 10,
     orderBy: {
-      id: 'asc'
+      id: 'desc'
     }
   }
 
@@ -38,13 +44,15 @@ export async function GET(request: NextRequest) {
   const page = searchParams.get('page')
 
   if (page) {
-    option.skip = Number(page) * 10
+    option.skip = (Number(page) - 1) * 10
   }
 
   const markdowns = await prisma.markdowns.findMany(option)
+  const total = await prisma.markdowns.count()
 
   return NextResponse.json({
-    markdowns
+    markdowns,
+    total
   }, {
     headers: {
       'Cache-Control': 'no-store',
