@@ -26,22 +26,22 @@ Meta(旧Facebook)社のAI研究グループにより開発。
 例）気温、売上、株価 etc.
 
 
-https://tech-arekore.vercel.app/images/pytoach-stock-price1.png
+![画像1](https://tech-arekore.vercel.app/images/pytoach-stock-price1.png)
 
 
 ## テスト結果（data=1000&seq=30)
 
-https://tech-arekore.vercel.app/images/pytoach-stock-price2.png
+![テスト結果（data=1000&seq=30)](https://tech-arekore.vercel.app/images/pytoach-stock-price2.png)
 
 ## テスト結果（data=1000&seq=1)
 
-https://tech-arekore.vercel.app/images/pytoach-stock-price3.png
+![テスト結果（data=1000&seq=1)](https://tech-arekore.vercel.app/images/pytoach-stock-price3.png)
 
 ## テスト結果（data=300&seq=30)
 
 データの数は重要！
 
-https://tech-arekore.vercel.app/images/pytoach-stock-price4.png
+![テスト結果（data=300&seq=30)](https://tech-arekore.vercel.app/images/pytoach-stock-price4.png)
 
 ## CPUとGPUでの学習時間
 
