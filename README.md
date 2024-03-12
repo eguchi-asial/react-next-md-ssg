@@ -41,3 +41,7 @@ ORM Prismaを介して取得してます。
 ### envについて
 
 prismaではlocalでは.envを使うが、vercelでは.env.development.localを参照する
+
+## env
+
+`.env.sample` をcopyし、 `.env` にて作成すること
