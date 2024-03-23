@@ -1,21 +1,21 @@
 import Link from 'next/link'
 import AppHeader from '../../../../components/AppHeader'
 import styles from './page.module.scss'
-import { getMarkdownsByPage } from '../../../../lib/api'
+import { getMarkdowns } from '../../../../lib/api'
 
 export default async function Articles({ params }: { params: { page: number } }) {
-  const { markdowns, total = 0 } = await getPosts(params.page)
+  const { posts = [], total = 0 } = getPosts(params.page)
   return (
     <div className={styles.contents}>
       <AppHeader />
       { params.page } ページ
 
-      { markdowns.length > 0 &&
+      { posts.length > 0 &&
       <div className={styles.contents}>
         <div className={styles['latest-reviews']}>
           <div className={styles['items-wrapper']}>
             <ul className={styles.items}>
-              { markdowns.map((post, index) =>
+              { posts.map((post, index) =>
               <li className="oddcolor" key={ index }>
                 <Link
                   className={styles.link}
@@ -45,19 +45,16 @@ export default async function Articles({ params }: { params: { page: number } })
   )
 }
 
-const getPosts = async (page: number) => {
-  const ret = await getMarkdownsByPage(page, [
+const getPosts = (page: number) => {
+  const markdowns = getMarkdowns(10, [
+    'category',
     'title',
     'date',
     'slug',
     'author',
     'coverImage',
     'excerpt',
-  ]) as {
-    markdowns: {
-        [key: string]: string;
-    }[];
-    total: number | undefined;
-}
-  return ret
+  ],
+  page)
+  return markdowns
 }

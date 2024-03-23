@@ -16,7 +16,7 @@ export async function generateMetadata({ params: { name } }:  { params: { name: 
 export default async function CategoryArticle({ params: { name } }: { params: { name: string } }) {
   try {
     const categoryName = decodeURI(name)
-    const markdowns = await getPosts(categoryName)
+    const markdowns = getPosts(categoryName)
     return (
       <div>
       <AppHeader />
@@ -44,6 +44,7 @@ export default async function CategoryArticle({ params: { name } }: { params: { 
               </ul>
             </div>
           </div>
+          <Link href="/" replace={true}>戻る</Link>
         </div>
       }
     </div>
@@ -53,10 +54,9 @@ export default async function CategoryArticle({ params: { name } }: { params: { 
   }
 }
 
-const getPosts = async (categoryName: string) => {
-  const allPosts: {
-    [key: string]: string
-  }[] = await getMarkdownsByCategoryName(categoryName, [
+const getPosts = (categoryName: string) => {
+  const allPosts = getMarkdownsByCategoryName(categoryName, [
+    'category',
     'title',
     'date',
     'slug',

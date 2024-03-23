@@ -1,9 +1,10 @@
 ---
+category: 'AI'
 title: 'Azure OpenAI Serivce の使い方の紹介'
 excerpt: 'Azure OpenAI Serivce の使い方の紹介'
 coverImage: ''
 date: '2023-11-30T14:00:00.000Z'
-author: 又川
+author: '又川'
 ---
 
 * Azure OpenAI Serivce の使い方の紹介

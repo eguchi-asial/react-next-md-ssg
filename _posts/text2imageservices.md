@@ -1,4 +1,5 @@
 ---
+category: 'AI'
 title: '無料で安全に商用利用できるtext to imageの画像生成AIの調査'
 excerpt: '無料で安全に商用利用できるtext to imageの画像生成AIの調査'
 coverImage: ''

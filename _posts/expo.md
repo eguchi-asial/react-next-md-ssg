@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'ExpoでReactNativeの開発体験を爆上げする'
 excerpt: 'ExpoでReactNativeの開発体験を爆上げする'
 coverImage: ''

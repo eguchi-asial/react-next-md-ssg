@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'PlanetScaleBoost発表'
 excerpt: 'PlanetScaleの遅いクエリ改善も金の力で解決できるらしい'
 coverImage: ''

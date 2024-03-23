@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'Vue3.3 Rurouni Kenshin release'
 excerpt: 'Vue3.3の新機能簡単に紹介'
 coverImage: ''

@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'Privacy Sandboxによる3rd party Cookie廃止とPrivate Sandbox APIの紹介'
 excerpt: 'Privacy Sandboxによる3rd party Cookie廃止とPrivate Sandbox APIの紹介'
 coverImage: ''

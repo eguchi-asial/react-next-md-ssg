@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma db pull && prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint --fix"
   },
   "dependencies": {
-    "@prisma/client": "^5.2.0",
     "@types/luxon": "^3.3.2",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
@@ -31,7 +30,6 @@
     "npm": "9.6.7"
   },
   "devDependencies": {
-    "prisma": "^5.2.0",
     "sass": "^1.65.1"
   }
 }

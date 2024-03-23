@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'Mountpoint for Amazon S3リリース'
 excerpt: 'ec2などのlInuxからfile mountできるようになった'
 coverImage: ''

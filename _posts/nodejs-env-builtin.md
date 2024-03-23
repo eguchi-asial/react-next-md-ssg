@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'Node.js v20.6.0から.envがbuiltinサポート'
 excerpt: 'Node.js v20.6.0から.envがbuiltinサポート'
 coverImage: ''

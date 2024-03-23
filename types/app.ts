@@ -6,21 +6,9 @@ export interface Markdown {
   category_id: number
 }
 
-export interface Comment {
-  id: number
-  markdown_id: number
-  comment: string
-  created_at: string
-  updated_at: string
-}
-
 export interface Markdowns {
   markdowns: Markdown[],
   total?: number
-}
-
-export interface Comments {
-  markdowns: Comment[]
 }
 
 export interface Category {
@@ -30,4 +18,8 @@ export interface Category {
 
 export interface Categories {
   categories: Category[]
+}
+
+export type Items = {
+  [key: string]: string
 }

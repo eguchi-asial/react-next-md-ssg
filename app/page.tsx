@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { getCategories, getLatestMarkdowns } from '../lib/api'
+import { getCategories, getMarkdowns } from '../lib/api'
 import styles from './page.module.scss'
 import AppHeader from '../components/AppHeader'
+import { Items } from '../types/app'
 
 export const dynamic = 'force-dynamic'
 
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const latest10Contents = await getPosts()
-  const categories = await getCategories()
+  const latest10Contents = getPosts()
+  const categories = getCategories()
 
   return (
     <div>
@@ -60,9 +61,9 @@ export default async function Home() {
                 { categories.map((category, index) =>
                 <li className="oddcolor" key={ index }>
                   <Link
-                    href={`/articles/categories/${category.name}`}
+                    href={`/articles/categories/${category}`}
                   >
-                    {category.name}
+                    {category}
                   </Link>
                 </li>
                 )}
@@ -75,15 +76,16 @@ export default async function Home() {
   )
 }
 
-const getPosts = async () => {
-  const allPosts = await getLatestMarkdowns(10, [
+const getPosts = () => {
+  const allPosts = getMarkdowns(10, [
+    'category',
     'title',
     'date',
     'slug',
     'author',
     'coverImage',
     'excerpt',
-  ])
+  ]) as { posts: Items[]; total: number; }
 
-  return allPosts
+  return allPosts.posts
 }

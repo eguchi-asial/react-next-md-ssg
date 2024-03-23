@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'Chrome 113からWebGPUのサポート'
 excerpt: 'Chrome 113からWebGPUのサポート'
 coverImage: ''

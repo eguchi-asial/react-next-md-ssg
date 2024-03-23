@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'Vue2がEOLに(2023/12/31) / Vue2 NESもあるよ'
 excerpt: 'Vue2がEOLに。Vue3への移行が推奨されるも、Vue2 NESでVue3を使い続けることも可能'
 coverImage: ''

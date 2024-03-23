@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'web platform baseline発表'
 excerpt: 'Google I/O 2023で発表された。「Web Platform Baseline」について紹介'
 coverImage: ''

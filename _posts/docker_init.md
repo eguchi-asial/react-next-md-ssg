@@ -1,4 +1,5 @@
 ---
+category: 'ノウハウ'
 title: 'docker init紹介'
 excerpt: 'docker init コマンドでプロジェクトに必要そうなファイルを検査し、自動でDockerfileを生成してくれる'
 coverImage: ''

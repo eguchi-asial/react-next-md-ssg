@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'ChromeDevToolでresponse headerの上書きが可能になった'
 excerpt: 'ChromeDevToolでresponse headerの上書きが可能になった'
 coverImage: ''

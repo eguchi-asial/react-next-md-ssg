@@ -1,4 +1,5 @@
 ---
+category: 'AI'
 title: 'PyTorchによる株価予測モデルの構築'
 excerpt: 'PyTorchによる株価予測モデルの構築'
 coverImage: ''

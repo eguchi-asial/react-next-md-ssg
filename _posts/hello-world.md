@@ -1,4 +1,5 @@
 ---
+category: '雑談'
 title: 'テスト'
 excerpt: '要約'
 coverImage: '/assets/images/test.png'

@@ -1,4 +1,5 @@
 ---
+category: 'IT全般'
 title: 'Vercel Storageリリース'
 excerpt: 'Vercel Storageリリース'
 coverImage: '/images/arekore-dataflow.png'

@@ -1,4 +1,5 @@
 ---
+category: 'ノウハウ'
 title: 'Flutter の簡単な紹介と質疑応答'
 excerpt: 'Flutter の簡単な紹介と質疑応答'
 coverImage: ''

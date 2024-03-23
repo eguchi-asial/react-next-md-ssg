@@ -1,4 +1,5 @@
 ---
+category: '雑談'
 title: 'このアプリについて'
 excerpt: 'Tech勉強会記録用 md投稿型SSGシステム'
 coverImage: '/images/arekore-dataflow.png'
